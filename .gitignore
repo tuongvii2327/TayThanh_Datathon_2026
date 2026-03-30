@@ -171,6 +171,18 @@ cython_debug/
 .ruff_cache/
 
 # PyPI configuration file
+
+# Dữ liệu
+*.csv
+*.xlsx
+*.xls
+*.json
+data/
+temp/
+
+# Môi trường ảo
+venv/
+.venv/
 .pypirc
 
 # Cursor  
