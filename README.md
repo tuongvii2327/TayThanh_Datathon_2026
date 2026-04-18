@@ -1,6 +1,6 @@
 # DATATHON 2026: THE GRIDBREAKERS - Project Workspace
 
-This repository contains the source code, notebooks, and configuration files for our team (2 IT, 1 DS) participating in DATATHON 2026.
+This repository contains the source code, notebooks, and configuration files for our team participating in DATATHON 2026.
 
 ## ⚠️ STRICT DATA PRIVACY RULE
 
@@ -23,40 +23,46 @@ Before you begin, ensure you have the following installed on your machine:
 ### Step 1: Clone the Repository
 
 Open your terminal (or Git Bash) and run:
-git clone https://github.com/tuongvii2327/Datathon.2026.git
-cd Datathon.2026
+
+> git clone https://github.com/tuongvii2327/Datathon.2026.git
+> cd Datathon.2026
 
 ### Step 2: Create a Virtual Environment (venv)
 
 We use a virtual environment to ensure all team members run the exact same library versions without breaking their local machine setups.
 
 **For Windows (using Git Bash or Command Prompt):**
-python -m venv venv
+
+> python -m venv venv
 
 **For macOS / Linux:**
-python3 -m venv venv
+
+> python3 -m venv venv
 
 ### Step 3: Activate the Virtual Environment
 
 You must activate the environment **every time** you work on this project.
 
 **For Windows (Git Bash):**
-source venv/Scripts/activate
-_(If using Windows CMD: .\venv\Scripts\activate)_
+
+> source venv/Scripts/activate
+> (If using Windows CMD: .\venv\Scripts\activate)
 
 **For macOS / Linux:**
-source venv/bin/activate
-_(Success indicator: You will see `(venv)` at the beginning of your terminal prompt)._
+
+> source venv/bin/activate
+> (Success indicator: You will see `(venv)` at the beginning of your terminal prompt).
 
 ### Step 4: Install Dependencies
 
 With `(venv)` activated, install the required Data Science packages:
-python -m pip install --upgrade pip setuptools wheel
-pip install -r requirements.txt
+
+> python -m pip install --upgrade pip setuptools wheel
+> pip install -r requirements.txt
 
 ---
 
-## 3. Workflow for Updating Libraries
+## 3. Workflow for Updating Libraries (không cần thiết vì chúng ta đang làm việc với các thư viện và version theo requirements.txt, nếu muốn update thì cần thảo luận với nhóm)
 
 If you need a new library (e.g., `plotly`) for your EDA or ML models, follow these steps to ensure the whole team gets the update:
 
@@ -80,44 +86,49 @@ pip install -r requirements.txt
 To avoid code conflicts between the 3 members, strictly follow these steps every day:
 
 **Step 1: ALWAYS pull before you start coding**
-git pull origin main
+
+> git pull origin main
 
 **Step 2: Make your changes and save**
 
-# Edit your code in VS Code or Jupyter Notebook
+Edit your code in VS Code or Jupyter Notebook
 
 **Step 3: Stage and Commit your changes**
-git add .
-git commit -m "Prefix: Short description of what you did"
 
-# Examples of good commit messages:
+> git add .
+> git commit -m "Prefix: Short description of what you did"
 
-# git commit -m "EDA: Add histogram plots for numerical variables"
+Examples of good commit messages:
 
-# git commit -m "Fix: Clean missing values in preprocessing function"
+git commit -m "EDA: Add histogram plots for numerical variables"
+git commit -m "Fix: Clean missing values in preprocessing function"
 
 **Step 4: Push to GitHub**
-git push origin main
+
+> git push origin main
 
 ---
 
 ## 5. Branching Strategy (Làm việc song song)
 
-Since 2 IT and 1 DS are working simultaneously, use branches for major features to prevent breaking the main codebase.
+Since we are working simultaneously, use branches for major features to prevent breaking the main codebase.
 
 **Create and switch to a new branch:**
-git checkout -b <branch-name>
+
+> git checkout -b <branch-name>
 
 # Example: git checkout -b data-cleaning
 
 **Push your branch to GitHub:**
-git push origin <branch-name>
+
+> git push origin <branch-name>
 
 **Merge your work back to main (Once confirmed working):**
-git checkout main
-git pull origin main
-git merge <branch-name>
-git push origin main
+
+> git checkout main
+> git pull origin main
+> git merge <branch-name>
+> git push origin main
 
 ---
 
