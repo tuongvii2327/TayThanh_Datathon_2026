@@ -52,7 +52,7 @@ _(Success indicator: You will see `(venv)` at the beginning of your terminal pro
 
 With `(venv)` activated, install the required Data Science packages:
 python -m pip install --upgrade pip setuptools wheel
-pip install -r libVersion.txt
+pip install -r requirements.txt
 
 ---
 
@@ -64,14 +64,14 @@ If you need a new library (e.g., `plotly`) for your EDA or ML models, follow the
 pip install plotly
 
 **Step 2: Update the dependencies file**
-pip freeze > libVersion.txt
+pip freeze > requirements.txt
 
 **Step 3: Push to GitHub**
-Commit and push the updated `libVersion.txt` to the repository.
+Commit and push the updated `requirements.txt` to the repository.
 
 **Step 4: How others sync the update**
 When other members pull the latest code, they must run:
-pip install -r libVersion.txt
+pip install -r requirements.txt
 
 ---
 
@@ -125,7 +125,7 @@ git push origin main
 
 Datathon.2026/
 ├── .gitignore # Ignores data files and venv to secure raw data
-├── libVersion.txt # List of project dependencies
+├── requirements.txt # List of project dependencies
 ├── README.md # Project documentation
 ├── notebooks/ # Jupyter notebooks for Exploratory Data Analysis (EDA)
 └── src/ # Python scripts for data processing and ML models
