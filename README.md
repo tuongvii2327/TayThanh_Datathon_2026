@@ -130,6 +130,15 @@ Since we are working simultaneously, use branches for major features to prevent 
 > git merge <branch-name>
 > git push origin main
 
+**Check out another member's branch**
+
+> git fetch origin
+> git branch -a
+
+> git checkout <branch-name>
+> or
+> git switch <branch-name>
+
 ---
 
 ## 6. Project Structure
