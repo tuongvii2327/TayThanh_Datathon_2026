@@ -12,7 +12,7 @@ This repository contains the source code, notebooks, and configuration files for
 
 Before you begin, ensure you have the following installed on your machine:
 
-- **Python 3.9+** (Added to system PATH)
+- **Python 3.11+** (Added to system PATH)
 - **Git** & **Git Bash** (For Windows users)
 - **GitHub Desktop** (Optional but recommended for beginners)
 
