@@ -177,6 +177,7 @@ cython_debug/
 *.xlsx
 *.xls
 *.json
+*.parquet
 data/
 temp/
 
