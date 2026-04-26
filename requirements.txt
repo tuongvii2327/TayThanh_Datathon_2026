@@ -121,3 +121,4 @@ websocket-client==1.9.0
 xgboost==2.1.4
 ydata-profiling
 zipp==3.23.1
+holidays
