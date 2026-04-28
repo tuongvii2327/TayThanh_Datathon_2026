@@ -173,13 +173,14 @@ cython_debug/
 # PyPI configuration file
 
 # Dữ liệu
-*.csv
+# *.csv
 *.xlsx
 *.xls
 *.json
 *.parquet
 data/
 temp/
+*.html
 
 # Môi trường ảo
 venv/
