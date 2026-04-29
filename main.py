@@ -75,14 +75,13 @@ def open_reports():
 
 if __name__ == "__main__":
     print("\nSTART PIPELINE...")
-    # 1. Run notebooks
     for nb in notebooks:
+        # 1. Run notebooks
         run_notebook(nb)
-    # 2. Export HTML
-    print("\nExporting reports...\n")
-    for nb in notebooks:
+        # 2. Export HTML
+        print(f"\nExporting reports {nb}\n")
         export_html(nb)
-    # 3. Open ALL at once
-    open_reports()
+        # 3. Open notebooks
+        open_reports()
 
     print("\nALL DONE!")
