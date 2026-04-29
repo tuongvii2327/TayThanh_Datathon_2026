@@ -1,151 +1,100 @@
-# DATATHON 2026: THE GRIDBREAKERS - Project Workspace
+# DATATHON 2026: THE GRIDBREAKERS
 
-This repository contains the source code, notebooks, and configuration files for our team participating in DATATHON 2026.
+Welcome to the official repository of Team **Tay Thanh** (Đội thi **Tây Thạnh**) for the _Datathon 2026_. This document outlines our _project's directory structure_ and provides a _step-by-step guide_ to reproducing our analysis, training the models, and generating the final submission file.
 
-## ⚠️ STRICT DATA PRIVACY RULE
+## Prerequisites
 
-**DO NOT push any raw data files (`.csv`, `.xlsx`, `.json`) to this repository.** All data files must remain on your local machine. The `.gitignore` is already configured to prevent accidental uploads. Violating this rule will result in disqualification based on the competition's Data Ethics criteria.
+Before running the pipeline, please ensure your system meets the following requirement:
 
----
-
-## 1. Prerequisites
-
-Before you begin, ensure you have the following installed on your machine:
-
-- **Python 3.11+** (Added to system PATH)
-- **Git** & **Git Bash** (For Windows users)
-- **GitHub Desktop** (Optional but recommended for beginners)
+- **Python 3.11 (Strictly required to ensure library compatibility and avoid dependency conflicts).**
 
 ---
 
-## 2. Initial Setup (Do this once)
+## Quick Start Guide (How to reproduce the results)
 
-### Step 1: Clone the Repository
+Assuming you have downloaded the repository (via `git clone` or extracting the `.zip` file) and opened the **DATATHON_THE_GRIDBREAKERS_2026** folder in your terminal (VS Code Terminal, Git Bash, or PowerShell), please follow these exact steps:
 
-Open your terminal (or Git Bash) and run:
+### Step 1: Create a Virtual Environment
 
-> git clone https://github.com/tuongvii2327/Datathon.2026.git
-> cd Datathon.2026
+We strongly recommend running this project in an isolated virtual environment.
 
-### Step 2: Create a Virtual Environment (venv)
+> py -3.11 -m venv venv
 
-We use a virtual environment to ensure all team members run the exact same library versions without breaking their local machine setups.
+### Step 2: Activate the Virtual Environment
 
-**For Windows (using Git Bash or Command Prompt):**
+Depending on your terminal, use one of the following commands:
 
-> python -m venv venv
-
-**For macOS / Linux:**
-
-> python3 -m venv venv
-
-### Step 3: Activate the Virtual Environment
-
-You must activate the environment **every time** you work on this project.
-
-**For Windows (Git Bash):**
+For Git Bash (Windows) / macOS / Linux:
 
 > source venv/Scripts/activate
-> (If using Windows CMD: .\venv\Scripts\activate)
 
-**For macOS / Linux:**
+For PowerShell (Windows - VS Code default):
 
-> source venv/bin/activate
-> (Success indicator: You will see `(venv)` at the beginning of your terminal prompt).
+> .\venv\Scripts\Activate.ps1
 
-### Step 4: Install Dependencies
+(You should see `(venv)` appear at the beginning of your terminal prompt indicating it is active).
 
-With `(venv)` activated, install the required Data Science packages:
+### Step 3: Upgrade Base Tools & Install Dependencies
+
+Ensure your package installer is up to date, then install all required libraries.
 
 > python -m pip install --upgrade pip setuptools wheel
 > pip install -r requirements.txt
 
----
+### Step 4: Execute the Main Pipeline
 
-## 3. Workflow for Updating Libraries (không cần thiết vì chúng ta đang làm việc với các thư viện và version theo requirements.txt, nếu muốn update thì cần thảo luận với nhóm)
+Run the main script to trigger the automated pipeline.
 
-If you need a new library (e.g., `plotly`) for your EDA or ML models, follow these steps to ensure the whole team gets the update:
-
-**Step 1: Install the library locally**
-pip install plotly
-
-**Step 2: Update the dependencies file**
-pip freeze > requirements.txt
-
-**Step 3: Push to GitHub**
-Commit and push the updated `requirements.txt` to the repository.
-
-**Step 4: How others sync the update**
-When other members pull the latest code, they must run:
-pip install -r requirements.txt
+> python main.py
 
 ---
 
-## 4. Daily Git Workflow (Quy trình code hàng ngày)
+## Understanding main.py & HTML Reports
 
-To avoid code conflicts between the 3 members, strictly follow these steps every day:
+- What exactly happens when you run **main.py**?
+  _1. Notebook Execution:_ The script sequentially executes all Jupyter notebooks in the pipeline (Data Cleaning -> MCQs -> EDAs -> Feature Engineering -> Machine Learning) directly in the background.
+  _2. HTML Export:_ Once executed, it converts every notebook into an interactive HTML format and saves them inside the reports_html/ directory.
+  _3. Auto-Open:_ Finally, the script automatically opens all the generated HTML reports simultaneously in your default web browser for immediate review.
 
-**Step 1: ALWAYS pull before you start coding**
-
-> git pull origin main
-
-**Step 2: Make your changes and save**
-
-Edit your code in VS Code or Jupyter Notebook
-
-**Step 3: Stage and Commit your changes**
-
-> git add .
-> git commit -m "Prefix: Short description of what you did"
-
-Examples of good commit messages:
-
-git commit -m "EDA: Add histogram plots for numerical variables"
-git commit -m "Fix: Clean missing values in preprocessing function"
-
-**Step 4: Push to GitHub**
-
-> git push origin main
+- How to view the HTML reports if you accidentally close them?
+  If you close the browser tabs, you DO NOT need to rerun the main.py script. Simply navigate to the **reports_html/** folder inside the project directory and double-click any `.html` file to view it in your browser.
 
 ---
 
-## 5. Branching Strategy (Làm việc song song)
+## Repository Structure
 
-Since we are working simultaneously, use branches for major features to prevent breaking the main codebase.
+Our project is organized to separate raw data, intermediate processing steps, and final outputs clearly.
 
-**Create and switch to a new branch:**
-
-> git checkout -b <branch-name>
-
-# Example: git checkout -b data-cleaning
-
-**Push your branch to GitHub:**
-
-> git push origin <branch-name>
-
-**Merge your work back to main (Once confirmed working):**
-
-> git checkout main
-> git pull origin main
-> git merge <branch-name>
-> git push origin main
-
-**Check out another member's branch**
-
-> git fetch origin
-> git branch -a
-
-> git checkout <branch-name>
-> or
-> git switch <branch-name>
+DATATHON_THE_GRIDBREAKERS_2026/
+│
+├── dataset/
+│ ├── 01_raw/ # Original datasets provided by organizers (14 `.csv` files)
+│ ├── 02_after_cleaning/ # Auto-generated after running main.py
+│ ├── 03_after_eda/ # Auto-generated after running main.py
+│ ├── 04_after_fe/ # Auto-generated after running main.py
+│ └── 05_submission/  
+│ └── submission.csv # Final prediction file generated by the model
+│
+├── notebooks/ # Jupyter Notebooks containing our step-by-step logic
+│ ├── 00_baseline.ipynb
+│ ├── 01_data_cleaning.ipynb # Initial data discovery, type handling, and missing value treatment
+│ ├── 02_MCQs_answers.ipynb # Solutions for Part 1 - Multiple Choice Questions
+│ ├── 03_EDA_traffic_payment.ipynb # Analysis of payment methods and web traffic patterns
+│ ├── 04_EDA_customer_promotion.ipynb # Analysis of promotional campaigns and customer segmentation
+│ ├── 05_EDA_product.ipynb # Insights into product performance, revenue, and profitability
+│ ├── 05_features_engineering.ipynb # Feature creation and data preparation for Machine Learning
+│ └── 06_modeling.ipynb # Revenue forecasting model for the period 2023-01-01 to 2024-07-01
+│
+├── reports_html/ # Auto-generated HTML execution reports (appears after main.py)
+├── venv/ # Python Virtual Environment
+│
+├── main.py # Orchestrator script to run the entire pipeline
+├── requirements.txt # List of required Python packages
+├── reports.pdf # Project presentation and summary report
+├── .gitattributes  
+├── .gitignore # Specifies files and folders to be ignored by Git
+└── README.md # Project documentation
 
 ---
 
-## 6. Project Structure
-
-Datathon.2026/
-├── .gitignore # Ignores data files and venv to secure raw data
-├── requirements.txt # List of project dependencies
-├── README.md # Project documentation
-├── notebooks/ # Jupyter notebooks for Exploratory Data Analysis (EDA)
-└── src/ # Python scripts for data processing and ML models
+Thank you for reviewing our submission. If you encounter any issues during the setup process, please reach out to Team **Tay Thanh**.
