@@ -5,17 +5,16 @@ import webbrowser
 
 NOTEBOOK_DIR = "notebooks"
 REPORT_DIR = "reports_html"
-
 os.makedirs(REPORT_DIR, exist_ok=True)
 
 notebooks = [
     "01_data_cleaning.ipynb",
     "02_MCQs_answers.ipynb",
-    # "03_EDA_huong1.ipynb",
-    # "04_EDA_huong2.ipynb",
-    # "05_EDA_huong3.ipynb",
-    # "05_features_engineering.ipynb",
-    # "06_modeling.ipynb"
+    "03_EDA_traffic_payment.ipynb",
+    "04_EDA_customer_promotion.ipynb",
+    "05_EDA_product.ipynb",
+    "06_feature_engineering.ipynb",
+    "07_machine_learning.ipynb"
 ]
 
 generated_html = []
@@ -68,14 +67,14 @@ def export_html(nb):
 
 
 def open_reports():
-    print("\n🌐 Opening reports...\n")
+    print("\nOpening reports...\n")
 
     for html in generated_html:
         webbrowser.open(f"file://{os.path.abspath(html)}")
 
 
 if __name__ == "__main__":
-    print("\n🚀 START PIPELINE...")
+    print("\nSTART PIPELINE...")
     # 1. Run notebooks
     for nb in notebooks:
         run_notebook(nb)
