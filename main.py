@@ -81,7 +81,7 @@ if __name__ == "__main__":
         # 2. Export HTML
         print(f"\nExporting reports {nb}\n")
         export_html(nb)
-        # 3. Open notebooks
-        open_reports()
+    # 3. Open notebooks
+    open_reports()
 
     print("\nALL DONE!")
