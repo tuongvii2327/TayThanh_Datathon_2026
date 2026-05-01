@@ -37,8 +37,8 @@ def run_notebook(nb):
             "--ExecutePreprocessor.timeout=600"
         ] + [nb_path],
         check=True,
-        # stdout=subprocess.DEVNULL,
-        # stderr=subprocess.DEVNULL
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL
     )
     print(f"Done: {nb}")
 
