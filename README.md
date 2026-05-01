@@ -47,7 +47,11 @@ Run the main script to trigger the automated pipeline.
 
 > python main.py
 
----
+(If this file can't run, please execute this command:
+
+> python -m pip install ipykernel
+
+And try the above command again).
 
 ## Understanding main.py & HTML Reports
 
